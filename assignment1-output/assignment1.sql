@@ -1,15 +1,16 @@
-CREATE DATABASE StudentDB;
+CREATE DATABASE IF NOT EXISTS student_db;
 
+USE student_db;
 
-use StudentDB;
-
-USE StudentDB;
-CREATE TABLE students (
+CREATE TABLE IF NOT EXISTS students (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    age INT,
-    grade VARCHAR(10)
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    age INT NOT NULL,
+    grade VARCHAR(10) NOT NULL
 );
 
-INSERT INTO students (name, age, grade) VALUES ('John Doe', 21, 'A');
-INSERT INTO students (name, age, grade) VALUES ('Jane Smith', 22, 'B');
+-- Sample Data
+INSERT INTO students (name, email, age, grade) VALUES 
+('John Doe', 'john@example.com', 20, 'A'),
+('Jane Smith', 'jane@example.com', 22, 'B');
